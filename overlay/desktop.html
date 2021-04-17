@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlay</title>
+    <link
+      href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font: 16px "Noto Sans";
+        background-color: #181425;
+      }
+
+      p {
+        margin-bottom: 4px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      #overlay {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+      }
+
+      #left {
+        width: 440px;
+        height: 1080px;
+        position: relative;
+      }
+
+      #left .flex {
+        position: absolute;
+        background-color: #00aad4;
+        border-top: 5px solid #fff;
+        bottom: 0;
+      }
+
+      #left .flex > ul {
+        padding: 16px;
+        height: 100px;
+        width: 188px;
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      #social {
+        left: 0;
+        bottom: 0;
+        font-weight: bold;
+        position: absolute;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      #social li {
+        text-align: center;
+        font-size: 22px;
+        margin: 0 auto;
+        position: absolute;
+        width: 188px;
+        transition: opacity 1s;
+        opacity: 0;
+      }
+
+      #social li.show {
+        opacity: 1;
+      }
+
+      #social li p:last-child {
+        margin-bottom: 0;
+      }
+
+      #social i {
+        font-size: 60px;
+      }
+
+      #sponsors img {
+        width: 100%;
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        socialIcons();
+      });
+
+      function socialIcons() {
+        let socialLis = document
+          .getElementById("social")
+          .getElementsByTagName("li");
+        let showDuration = 10;
+
+        [...socialLis].map((li, i) => {
+          window.setTimeout(() => {
+            window.setInterval(() => {
+              li.classList.add("show");
+
+              window.setTimeout(() => {
+                li.classList.remove("show");
+              }, showDuration * 1000);
+            }, socialLis.length * showDuration * 1000);
+          }, i * showDuration * 1000);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="left">
+        <div class="flex">
+          <ul id="social">
+            <li>
+              <p class="icon"><i class="fab fa-github"></i></p>
+              <p>/curiTTV</p>
+            </li>
+            <li>
+              <p class="icon"><i class="fab fa-twitter"></i></p>
+              <p>@curiTTV</p>
+            </li>
+            <li>
+              <p class="icon"><i class="fab fa-youtube"></i></p>
+              <p>curi</p>
+            </li>
+            <li>
+              <p class="icon"><i class="fab fa-twitch"></i></p>
+              <p>/curiTTV</p>
+            </li>
+            <li>
+              <p class="icon"><i class="fab fa-discord"></i></p>
+              <p>/curi</p>
+            </li>
+            <li>
+              <p class="icon"><i class="fab fa-instagram"></i></p>
+              <p>/curiTTV</p>
+            </li>
+          </ul>
+          <ul id="sponsors">
+            <li>
+              <img src="TW_white_75transparenz.png" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
