@@ -86,11 +86,11 @@
       #social li {
         text-align: center;
         font-size: 22px;
-        margin: 0 auto;
         position: absolute;
         width: 188px;
         transition: opacity 1s;
         opacity: 0;
+        top: 24px;
       }
 
       #social li.show {
@@ -102,7 +102,7 @@
       }
 
       #social i {
-        font-size: 60px;
+        font-size: 50px;
       }
 
       #sponsors img {
@@ -120,17 +120,20 @@
           .getElementsByTagName("li");
         let showDuration = 10;
 
-        [...socialLis].map((li, i) => {
-          window.setTimeout(() => {
-            window.setInterval(() => {
-              li.classList.add("show");
+        showItem(socialLis, 0, showDuration);
+      }
 
-              window.setTimeout(() => {
-                li.classList.remove("show");
-              }, showDuration * 1000);
-            }, socialLis.length * showDuration * 1000);
-          }, i * showDuration * 1000);
-        });
+      function showItem(items, curItemI, showDuration) {
+        items[curItemI].classList.add("show");
+
+        window.setTimeout(() => {
+          items[curItemI].classList.remove("show");
+          showItem(
+            items,
+            curItemI + 1 === items.length ? 0 : curItemI + 1,
+            showDuration
+          );
+        }, showDuration * 1000);
       }
     </script>
   </head>
