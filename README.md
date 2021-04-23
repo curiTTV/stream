@@ -9,7 +9,8 @@
     - [Redemption akzeptieren](https://dev.twitch.tv/docs/api/reference#update-redemption-status)
 - [ ] Neuer Discord Bot
 
-- [ ] Elixir
+- [ ] App auf Basis von React Native oder ähnlichem
+- [ ] Electron
 - [ ] Unity / Unreal
 - [ ] Overlay ausbauen
 - [ ] Twirgo refactoren/rewrite
